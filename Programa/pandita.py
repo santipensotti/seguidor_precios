@@ -15,4 +15,4 @@ df = df[df[datetime.today().strftime('%d-%m-%Y')].notna()]
 copy = df.sort_values(by=['Categoria','Titulo'])
 
 copy.to_excel("ordenado.xlsx",index=False)
-print(copy)
+print(copy['Aumento'].mean())
