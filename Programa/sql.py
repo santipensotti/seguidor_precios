@@ -59,4 +59,4 @@ df= pd.read_excel("chan.xlsx")
 print(df.dtypes)
 
 #agregarCategoria("chan.xlsx","categorico.xlsx")
-agregarExcel("chan.xlsx", "25-05-2022.xlsx")
+agregarExcel("chan.xlsx", "Archivos/" +datetime.today().strftime('%d-%m-%Y')+".xlsx")
