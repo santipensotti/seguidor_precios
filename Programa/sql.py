@@ -13,7 +13,7 @@ def agregarExcel(original, agregar):
     print(len(productos))
     ultimo_valor = len(df['Titulo'].to_list())
     col = len(df.axes[1])
-    nuevaFecha = datetime.today().strftime('%d-%m-%Y')
+    nuevaFecha = fecha
 
 
     df[nuevaFecha] = np.nan
@@ -38,7 +38,7 @@ def agregarCategoria(original, agregar):
     productos = df2['Titulo'].to_list()
     precios = df2['Categoria'].to_list()
     print(len(productos))
-    nuevaFecha = datetime.today().strftime('%d-%m-%Y')
+    nuevaFecha = agregar
 
 
     df[nuevaFecha] = np.nan
@@ -59,4 +59,5 @@ df= pd.read_excel("chan.xlsx")
 print(df.dtypes)
 
 #agregarCategoria("chan.xlsx","categorico.xlsx")
-agregarExcel("chan.xlsx", "Archivos/" +datetime.today().strftime('%d-%m-%Y')+".xlsx")
+fecha =  datetime.today().strftime('%d-%m-%Y')
+agregarExcel("chan.xlsx", "Archivos/" + fecha +".xlsx")

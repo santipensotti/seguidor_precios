@@ -63,5 +63,5 @@ df = pd.DataFrame(lista)
 print(df.head()) 
 
 
-df.to_excel(datetime.today().strftime('%d-%m-%Y')+".xlsx",index=False)
+df.to_excel("Archivos/" + datetime.today().strftime('%d-%m-%Y')+".xlsx",index=False)
 print(datetime.now() - begin_time)
