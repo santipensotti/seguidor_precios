@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup as soup
 from urllib.request import Request, urlopen
 import re
 import pandas as pd
-import concurrent.futures
 from datetime import datetime
 from requests.utils import requote_uri
 
@@ -75,7 +74,7 @@ def recorrer_cat_prin():
         category(i['Link'], i['Categoria'])
 
     df = pd.DataFrame(sub_categoria)
-    df.to_excel("CATEGORIASTODAS.xlsx")
+    df.to_excel("Links Categorias.xlsx")
 
 productos_y_categoria = []
 
@@ -105,7 +104,6 @@ def buscarProductos(link, categoria):
 
 
 def recorrerSubCat(link, categoria):
-    print('Recorriendo')
     if categoria is not None :
         categorias = categoria
     else:
@@ -127,4 +125,4 @@ recorrer_cat_prin()
 print(len(productos_y_categoria))
 
 dfs = pd.DataFrame(productos_y_categoria)
-dfs.to_excel("categorico.xlsx")
+dfs.to_excel("categoria_productos.xlsx")
