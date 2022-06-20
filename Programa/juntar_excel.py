@@ -1,5 +1,4 @@
 
-from pickle import FALSE
 import pandas as pd
 from datetime import datetime
 import numpy as np
@@ -28,7 +27,7 @@ def agregarExcel(original, agregar):
             df.at[ultimo_valor, 'Titulo'] = productos[i]
             df.at[ultimo_valor, nuevaFecha] = (precios[i])
 
-    df.to_excel("chan.xlsx")
+    df.to_excel("Precios historicos.xlsx")
     
 
 def agregarCategoria(original, agregar):
@@ -37,7 +36,7 @@ def agregarCategoria(original, agregar):
 
     productos = df2['Titulo'].to_list()
     precios = df2['Categoria'].to_list()
-    print(len(productos))
+    
     nuevaFecha = agregar
 
 
@@ -51,12 +50,8 @@ def agregarCategoria(original, agregar):
         else:
             pass            
 
-    df.to_excel("chan.xlsx",index=False)
+    df.to_excel("Precios historicos.xlsx",index=False)
     
-
-df= pd.read_excel("chan.xlsx")
-
-print(df.dtypes)
 
 #agregarCategoria("chan.xlsx","categoria_productos.xlsx")
 fecha =  datetime.today().strftime('%d-%m-%Y')

@@ -1,4 +1,3 @@
-
 from traceback import print_tb
 from bs4 import BeautifulSoup as soup 
 from urllib.request import Request, urlopen
@@ -6,7 +5,6 @@ import re
 import pandas as pd
 import concurrent.futures
 from datetime import datetime
-import juntar_excel
 
 begin_time = datetime.now()
 
@@ -66,4 +64,3 @@ df.to_excel("Archivos/" + datetime.today().strftime('%d-%m-%Y')+".xlsx",index=Fa
 print(datetime.now() - begin_time)
 
 
-juntar_excel.agregarExcel()
