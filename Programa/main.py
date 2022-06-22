@@ -47,20 +47,21 @@ def cantidad():
     return cantidad_productos
 
 
-cantidad_paginas = cantidad()
-url = []
-for i in range(0, int(cantidad_paginas),72):
-    url.append(i)
 
 
-with concurrent.futures.ThreadPoolExecutor() as executor:
-    #Ejecuto varios procesos a la vez asi se reduce el tiempo de ejecucion
-    executor.map(main, url)
+def ejecutar():
+    cantidad_paginas = cantidad()
+    url = []
+    for i in range(0, int(cantidad_paginas),72):
+        url.append(i)
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        #Ejecuto varios procesos a la vez asi se reduce el tiempo de ejecucion
+        executor.map(main, url)
 
 
-df = pd.DataFrame(lista)
-print(df.head()) 
-df.to_excel("Archivos/" + datetime.today().strftime('%d-%m-%Y')+".xlsx",index=False)
-print(datetime.now() - begin_time)
+def excel():
+    ejecutar()
+    df = pd.DataFrame(lista)
+    df.to_excel("Archivos/" + datetime.today().strftime('%d-%m-%Y')+".xlsx",index=False)
 
 

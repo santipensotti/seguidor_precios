@@ -1,7 +1,10 @@
 
 import pandas as pd
 from datetime import datetime
+from pip import main
 import numpy as np
+import main
+import drive
 
 def agregarExcel(original, agregar):
     df = pd.read_excel(original)
@@ -9,9 +12,7 @@ def agregarExcel(original, agregar):
 
     productos = df2['Titulo'].to_list()
     precios = df2['Precio'].to_list()
-    print(len(productos))
     ultimo_valor = len(df['Titulo'].to_list())
-    col = len(df.axes[1])
     nuevaFecha = fecha
 
 
@@ -55,4 +56,9 @@ def agregarCategoria(original, agregar):
 
 #agregarCategoria("chan.xlsx","categoria_productos.xlsx")
 fecha =  datetime.today().strftime('%d-%m-%Y')
+main.ejecutar()
+
+
 agregarExcel("Precios historicos.xlsx", "Archivos/" + fecha +".xlsx")
+
+drive.actualizar()
